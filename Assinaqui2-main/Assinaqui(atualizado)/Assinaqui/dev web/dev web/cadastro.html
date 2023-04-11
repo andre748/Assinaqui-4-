@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <section>
+    <form action="/action_page.php">
+    
+    <fieldset>
+        <h1 style="text-align: center;font-style: normal;">Cadastro</h1>
+        <label for="nome">Nome:</label><br>
+        <input type="text"><br>
+        <label for="data">Data de nascimento:</label><br>
+        <input type="date"><br>
+        <label for="cpf">CPF:</label><br>
+        <input type="number"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" placeholder="Ex: contato@email.com"><br>
+        <label for="telefone">Telefone:</label><br>
+        <input type="number" placeholder="Ex: (00)00000-0000"><br>
+
+    
+        
+        <label for="estado">Estado:</label><br>
+        <input list="estado">
+        <datalist id="estado">
+            <option value="Acre"></option>
+            <option value="Alagoas"></option>
+            <option value="Amapá"></option>
+            <option value="Amazonas"></option>
+            <option value="Bahia"></option>
+            <option value="Ceará"></option>
+            <option value="Distrito Federal"></option>
+            <option value="Espírito Santo"></option>
+            <option value="Goiás"></option>
+            <option value="Maranhão"></option>
+            <option value="Mato Grosso"></option>
+            <option value="Mato Grosso do Sul"></option>
+            <option value="Minas Gerais"></option>
+            <option value="Pará"></option>
+            <option value="Paraíba"></option>
+            <option value="Paraná"></option>
+            <option value="Pernambuco"></option>
+            <option value="Piauí"></option>
+            <option value="Rio de Janeiro"></option>
+            <option value="Rio Grante do Norte"></option>
+            <option value="Rio Grande do Sul"></option>
+            <option value="Rondônia"></option>
+            <option value="Santa Catarina"></option>
+            <option value="São Paulo"></option>
+            <option value="Sergipe"></option>
+            <option value="Tocantins"></option>
+        </datalist><br>
+        <label for="cidade">Cidade</label><br>
+        <input type="text"><br>
+        <label for="bairro">Bairro</label><br>
+        <input type="text"><br>
+        <label for="rua">Rua</label><br>
+        <input type="text"><br>
+        <label for="cep">CEP</label><br>
+        <input type="number"><br>
+        <a href="https://buscacepinter.correios.com.br/app/endereco/index.php"><button>Clique para checar o seu CEP</button></a><br>
+        
+        <textarea name="complemento" id="complemento" cols="50" rows="10" placeholder="Complemento"></textarea><br>
+        <input type="submit">
+    </fieldset>
+    </form>
+    </section>
+</body>
+</html>
