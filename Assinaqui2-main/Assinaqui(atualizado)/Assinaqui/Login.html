@@ -37,7 +37,7 @@
             color: white;
             font-style: italic;
         }
-        input#nome {
+        input#email {
             border-style: solid;
             width: 300px;
             height: 40px;
@@ -106,26 +106,65 @@
             </div>
           </nav>
     </header>
-    <section>
+    <section id="buscar">
+      <div id="output"></div>
+      <form>
         <center><h3 style="color: blueviolet; margin: 20px 0 40px 0;">login</h3></center>
        <center><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-          </svg><input id="nome" type="text" placeholder="  Digite seu login"></center> 
+          </svg><input id="email" type="email" placeholder="  Digite seu email"></center> 
           <div></div>
          <center><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
           </svg><input id="senha" type="password" placeholder="  Digite sua senha"></center>
           <div><center><a href="..\assinaqui\recuperar_senha.html">Esqueceu a senha?</a></center></div> 
-          <center><div><a href="#"><button id="login">Login</button></a></div></center>
-          <div><center><p><strong>ou faça o login utilizando</strong></p></center></div>
+          <center><button id="login" type="button">Login</button></center>
+          <center><p><strong>ou faça o login utilizando</strong></p></center>
           <center><div><a href="https://pt-br.facebook.com/login/device-based/regular/login/"><img id=icone src="..\Assinaqui\imagens\th (2).jpeg" width="30px" height="30px"></a>
             <a href="https://accounts.google.com/v3/signin/identifier?dsh=S-1290893006%3A1680998298996843&hl=pt-BR&ifkv=AQMjQ7RoHfASnFjguHldvPvHfHohKCuFGEAdo4Kh7EaMhEbL9btZFnhqtbmgsYRN58JLYkHe874BIg&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img id=icone src="..\Assinaqui\imagens\gmail.jpeg" width="30px" height="30px"></a>
             <a href="https://twitter.com/i/flow/login"><img id=icone src="..\Assinaqui\imagens\twitter.jpeg" width="30px" height="30x"></div></a></center>
             <div><center><p style="margin-top: 40px;"><strong>Não tem um conta?</strong></p></center></div>
             <div><center><a href="..\Assinaqui\Cadastro.html"><button id="cadastrese">Cadastre-se</button></a></center></div>
-        
+          </form>
     </section>
+   
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+     const btn = document.getElementById("login");
+
+const emailInput = document.getElementById("email");
+const senhaInput = document.getElementById("senha");
+
+btn.addEventListener("click", () => {
+  const email = emailInput.value;
+  const senha = senhaInput.value;
+
+  axios
+    .post("http://localhost:3000/login", {
+      email: email,
+      senha: senha
+    })
+    .then((response) => {
+      // Manipule a resposta do servidor aqui
+      console.log(response.data);
+      const nomeUsuario = response.data.Nome;
+      output.innerHTML    =   `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>Perfeito!</strong> Bem vindo(a) de volta ${nomeUsuario}.
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>`;
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+});
+function editarPessoa(id) {
+            window.location.href = 'EditarPerfil.html?id=' + id;
+        }
         
+
+
+    </script>
+   
             
         
         
